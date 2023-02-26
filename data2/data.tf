@@ -6,3 +6,6 @@ data "aws_ami" "ami" {
 
 
 }
+output "ami_id" {
+  value = data.aws_ami.ami.image_id
+}
