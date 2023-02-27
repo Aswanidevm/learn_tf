@@ -8,6 +8,6 @@ resource "aws_instance" "ec2" {
   }
 }
 
-variable "insances" {
+variable "instances" {
         default = ["cart", "frontend", "mysql"]
 }
