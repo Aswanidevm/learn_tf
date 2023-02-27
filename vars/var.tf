@@ -32,7 +32,7 @@
  //     true,
  //     "World"
  //   ]
-  }
+ // }
 
  // variable "sample7" {
  //   default = {
