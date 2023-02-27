@@ -1,4 +1,4 @@
-ariable "sample" {
+variable "sample" {
     default = 100
   }
 
