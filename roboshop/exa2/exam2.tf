@@ -9,5 +9,5 @@ resource "aws_instance" "ec2" {
 }
 
 variable "insances" {
-        default = {"cart", "frontend","mysql"}
+        default = {"cart", "frontend", "mysql"}
 }
