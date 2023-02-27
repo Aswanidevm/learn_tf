@@ -11,3 +11,7 @@ resource "aws_instance" "ec2" {
 variable "instances" {
         default = ["cart", "frontend", "mysql"]
 }
+
+output "public_ip" {
+  value = aws_instance.ec2.*.public_ip
+}
