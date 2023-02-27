@@ -51,7 +51,7 @@
       {
         course_name  = "aws"
         trainer_name = "raju"
-      }
+      },
       {
         course_name  = "devops"
         trainer_name = "ravi"
