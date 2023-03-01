@@ -1,5 +1,4 @@
-resource "aws_instance" "ec2"
-{
+resource "aws_instance" "ec2"{
   for_each               = var.instances
   ami                    = "ami-0a017d8ceb274537d"
   instance_type          = each.value["type"]
@@ -10,8 +9,7 @@ resource "aws_instance" "ec2"
   }
 }
 
-variable "instances"
-{
+variable "instances"{
   default =
   {
     catalogue=
