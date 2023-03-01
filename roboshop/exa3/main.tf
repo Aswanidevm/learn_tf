@@ -20,6 +20,14 @@ variable "instances"{
     }
   }
 }
+resource "aws_route53_record" "record" {
+  for_each = var.instances
+  zone_id = "Z04818282BOE8RVGV13K7"
+  name    = "${each.value["Name"]}.myprojecdevops.info"
+  type    = "A"
+  ttl     = 30
+  records = [aws_instance.ec2.private_ip]
+}
 
 output "ec2" {
   value = [for k, v in aws_instance.ec2 : "${k} - ${v.public_ip}"]
