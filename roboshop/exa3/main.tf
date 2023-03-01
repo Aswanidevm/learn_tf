@@ -20,7 +20,7 @@ variable "instances"{
     }
   }
 }
-resource "aws_route53_record" "record" {
+resource "aws_route53_record" "record"{
   for_each = var.instances
   zone_id = "Z04818282BOE8RVGV13K7"
   name    = "${each.value["Name"]}.myprojecdevops.info"
