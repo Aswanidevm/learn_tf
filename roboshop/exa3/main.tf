@@ -9,15 +9,12 @@ resource "aws_instance" "ec2"{
 }
 
 variable "instances"{
-  default =
-  {
-    catalogue=
-    {
+  default =  {
+    catalogue=  {
       Name = "catalogue"
       type = "t3.micro"
     }
-    frontend=
-    {
+    frontend=   {
       Name = "frondend"
       type = "t3.micro"
     }
