@@ -3,8 +3,7 @@ resource "aws_instance" "ec2"{
   ami                    = "ami-0a017d8ceb274537d"
   instance_type          = each.value["type"]
   vpc_security_group_ids = ["sg-04f9cffce7d6ee23b"]
-  tags                   =
-  {
+  tags                   =  {
     Name = each.value["Name"]
   }
 }
