@@ -26,7 +26,7 @@ resource "aws_route53_record" "record" {
   name    = "${each.value["Name"]}.myprojecdevops.info"
   type    = "A"
   ttl     = 30
-  records = "[aws_instance.ec2: ${each.value["private_ip"]}]"
+  records = [for k, v in aws_instance.ec2 : "${k} - ${v.public_ip}"]
 }
 
 output "ec2" {
