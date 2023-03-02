@@ -13,7 +13,7 @@ module "sg" {
 
 module "route53" {
   source = "./route53"
-  pub_id = module.ec2.priv_id
+  priv_id = module.ec2.priv_id
 }
 
 
