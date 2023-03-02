@@ -14,10 +14,8 @@ module "sg" {
 module "route53" {
   for_each = var.instances
   source = "./route53"
-  priv_id = module.ec2.[priv_id]
   component = each.value["Name"]
-  instance_type = each.value["type"]
-  sg_id = module.sg.sg_id
+  priv_ip = module.ec2[each.value['Name']].priv_ip
 }
 
 
