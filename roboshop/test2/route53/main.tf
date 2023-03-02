@@ -4,7 +4,7 @@ resource "aws_route53_record" "record"{
   name        =   "${var.component}.myprojecdevops.info"
   type        =   "A"
   ttl         =   30
-  records     =   var.priv_id
+  records     =   [var.priv_id]
 }
 
 
