@@ -12,6 +12,9 @@ resource "aws_instance" "ec2"{
   }
 }
 
+output "priv_id" {
+  value = aws_instance.ec2.private_ip
+}
 
 variable "component" {}
 variable "instance_type" {}

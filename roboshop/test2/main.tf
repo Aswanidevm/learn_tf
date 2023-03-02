@@ -4,7 +4,7 @@ module "ec2" {
   source = "./ec2"
   component = each.value["Name"]
   instance_type = each.value["type"]
-  sg_id = ""
+  sg_id = module.sg.sg_id
 }
 
 module "sg" {
@@ -13,7 +13,7 @@ module "sg" {
 
 module "route53" {
   source = "./route53"
-
+  pub_id = module.ec2.priv_id
 }
 
 

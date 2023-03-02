@@ -4,10 +4,11 @@ resource "aws_route53_record" "record"{
   name        =   "${var.component}.myprojecdevops.info"
   type        =   "A"
   ttl         =   30
-  records     =   [aws_instance.ec2.private_ip]
+  records     =   var.priv_id
 }
 
 
 variable "component" {}
 variable "instance_type" {}
 variable "sg_id" {}
+variable "priv_id" {}
