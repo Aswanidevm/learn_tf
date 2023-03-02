@@ -20,9 +20,6 @@ resource "aws_route53_record" "record"{
   records = [aws_instance.ec2.private_ip]
 }
 
-output "ec2" {
-  value = [for k, v in aws_instance.ec2 : "${k} - ${v.public_ip}"]
-}
 
 variable "component" {}
 variable "instance_type" {}
