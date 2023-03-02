@@ -17,3 +17,7 @@ module "route53" {
   component = each.value["Name"]
   private_ip = module.ec2[each.value["Name"]].private_ip
 }
+
+output "ec2" {
+  value = module.ec2
+}

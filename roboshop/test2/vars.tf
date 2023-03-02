@@ -5,7 +5,7 @@ variable "instances"{
       type    = "t3.micro"
     }
     frontend  =   {
-      Name    = "frondend"
+      Name    = "frontend"
       type    = "t3.micro"
     }
   }
