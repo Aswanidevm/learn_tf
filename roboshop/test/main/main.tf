@@ -1,35 +1,28 @@
+data "aws_ami" "ami" {
+  most_recent = true
+  name_regex = "Centos-8-DevOps-Practice"
+  owners = ["973714476881"]
+}
 resource "aws_instance" "ec2"{
-  for_each               = var.instances
-  ami                    = "ami-0a017d8ceb274537d"
-  instance_type          = each.value["type"]
+  ami                    = data.aws_ami.ami.image_id
+  instance_type          = var.instance_type
   vpc_security_group_ids = ["sg-04f9cffce7d6ee23b"]
   tags                   =  {
-    Name = each.value["Name"]
+    Name = var.component
   }
 }
 
-variable "instances"{
-  default =  {
-    catalogue=  {
-      Name = "catalogue"
-      type = "t3.micro"
-    }
-    frontend=   {
-      Name = "frondend"
-      type = "t3.micro"
-    }
-  }
-}
 resource "aws_route53_record" "record"{
-  for_each = var.instances
   zone_id = "Z04818282BOE8RVGV13K7"
-  name    = "${each.value["Name"]}.myprojecdevops.info"
+  name    = "${var.component}.myprojecdevops.info"
   type    = "A"
   ttl     = 30
-  ip      = each.key[private_ip]
-  records = [aws_instance.ec2.${ip}]
+  records = [aws_instance.ec2.private_ip]
 }
 
 output "ec2" {
   value = [for k, v in aws_instance.ec2 : "${k} - ${v.public_ip}"]
 }
+
+variable "component" {}
+variable "instance_type" {}
