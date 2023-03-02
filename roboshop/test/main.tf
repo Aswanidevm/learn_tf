@@ -1,6 +1,6 @@
 module "ec2" {
   for_each = var.instances
-  source = "./ec2"
+  source = "./main"
   component =each.value["Name"]
   instance_type    = each.value["type"]
 }
