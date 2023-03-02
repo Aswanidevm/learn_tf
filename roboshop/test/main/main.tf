@@ -27,7 +27,7 @@ resource "aws_route53_record" "record"{
   type    = "A"
   ttl     = 30
   ip      = each.key[private_ip]
-  records = [aws_instance.ec2."${ip}"]
+  records = [aws_instance.ec2.${ip}]
 }
 
 output "ec2" {
